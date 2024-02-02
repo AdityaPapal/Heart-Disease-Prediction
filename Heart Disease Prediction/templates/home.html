@@ -1,0 +1,263 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Diseases Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {background-color: #d0d6d6;font-family: 'Lexend Deca', Helvetica, sans-serif;}* {box-sizing: border-box;}
+   
+    input[type=text] {
+        width: 30%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        resize: vertical; 
+        font-family: 'Trebuchet MS', sans-serif;
+    }
+    input[type=submit] {
+        background-color: #202120;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 230px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    input[type=submit]:hover {
+        background-color: hsl(123, 40%, 45%);
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Trebuchet MS', sans-serif;
+    }
+    .form_wrapper {
+        flex:1;
+        text-align: center;
+    }
+
+    .container {
+        width: 40%;
+        background-color: #8d8f90;
+        padding: 20px;
+        display: flex; 
+        border-radius: 5px;
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    label {
+        display: inline-block;
+        width: 300px;
+        text-align: left;
+        font-family: 'Trebuchet MS', sans-serif, Helvetica, sans-serif;
+    }
+    div{
+        
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .select{
+        width: 30%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 1px;
+        resize: vertical; 
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Trebuchet MS', sans-serif;
+    }
+
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 1px;
+        color: #343434;
+        font-size: 30px;
+        text-align: center;
+        font-weight: normal;
+        font-family: 'Trebuchet MS', sans-serif;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        line-height: 10px;
+    }
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 4px;
+        color: #343434;
+        font-size: 20px;
+        text-align: bottom;
+        font-weight: small;
+        font-family: 'Trebuchet MS', sans-serif;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        line-height: 10px;
+        text-align: center;
+    }
+    h3 {
+        margin-top: 40px;
+        margin-bottom: 4px;
+        color: #343434;
+        font-size: 20px;
+        text-align: bottom;
+        font-weight: small;
+        font-family: 'Trebuchet MS', sans-serif;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        line-height: 10px;
+        text-align: left;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+  #specialisation ,#workex,#hsc_s,#degree_t{
+        width: 30%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 4px;
+        margin-bottom: 6px;
+        resize: vertical; 
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+   
+   </style>    
+
+</head>
+
+<body>
+    <div class="login">
+        <br><br>
+        <h1>Heart Diseases Prediction</h1>
+        <br><br>
+
+
+
+    <div class="container">
+        <form action="{{url_for('predict_datapoint')}}" method="POST">
+            
+            <div class="form-group">
+                <label for="Age_of_person">Age of person:</label>
+                <input type="text" id="Age_of_person" name="Age_of_person" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Sex">Sex:</label>
+                <input type="text" id="Sex" name="Sex" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Chest_pain">Chest pain type:</label>
+                <input type="text" id="Chest_pain" name="Chest_pain" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Resting_BP">Resting BP:</label>
+                <input type="text" id="Resting_BP" name="Resting_BP" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Serum_Cholestoral">Serum Cholestoral (mg/dl):</label>
+                <input type="text" id="Serum_Cholestoral" name="Serum_Cholestoral" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Fasting_blood">Fasting Blood Sugar > 120 mg/dl:</label>
+                <input type="text" id="Fasting_blood" name="Fasting_blood" placeholder="Enter value">
+            </div>
+            
+            <div class="form-group">
+                <label for="Resting_electrocardiographic">Resting electrocardiographic Results(0-2):</label>
+                <input type="text" id="Resting_electrocardiographic" name="Resting_electrocardiographic" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Maximum_heart">Maximum Heart Rate Achieved:</label>
+                <input type="text" id="Maximum_heart" name="Maximum_heart" placeholder="Enter value">
+            </div>
+            
+            <div class="form-group">
+                <label for="Exercise_induced">Exercise Induced Angina:</label>
+                <input type="text" id="Exercise_induced" name="Exercise_induced" placeholder="Enter value">
+            </div>
+
+            <div class="form-group">
+                <label for="Oldpeak">Oldpeak:</label>
+                <input type="text" id="Oldpeak" name="Oldpeak" placeholder="Enter value">
+            </div>
+            <div class="form-group">
+                <label for="Slope">Slope of the peak exercise ST segment :</label>
+                <input type="text" id="Slope" name="Slope" placeholder="Enter value">
+            </div>
+            <div class="form-group">
+                <label for="major">Number of major vessels (0-3):</label>
+                <input type="text" id="major" name="major" placeholder="Enter value">
+            </div>
+            <div class="form-group">
+                <label for="chest">Thal:</label>
+                <input type="text" id="chest" name="chest" placeholder="Enter value">
+            </div>
+
+
+           
+            <div class="btn btn-primary btn-block btn-large">
+                <input type="submit" value="Submit" />
+            </div>
+            
+            
+    
+</div>
+</div>
+
+
+
+
+<h2></h2>
+
+<h2>Created by @AdityaPapal</h2>
+
+<div style="background-color: #8d8f90;color:black;padding:20px;border-radius: 5px;margin-top: auto;margin-bottom: auto;margin-left: 450px;margin-right: 450;">
+    <h2>About the data to be filled(Numeric form without Units):</h2>
+    <p>1. age (in numbers)</p>
+    <p>2. sex (0 : female, 1 : male)</p>
+    <p>3. chest pain type (4 values : 0-3)</p>
+    <p>4. Resting blood pressure (numeric only)</p>
+    <p>5. Serum Cholestoral in mg/dl</p>
+    <p>6. Fasting blood sugar > 120 mg/dl</p>
+    <p>7. Resting electrocardiographic results (values 0,1,2)</p>
+    <p>8. Maximum heart rate achieved</p>
+    <p>9. Exercise induced angina</p>
+    <p>10. Oldpeak = ST depression induced by exercise relative to rest</p>
+    <p>11. The slope of the peak exercise ST segment</p>
+    <p>12. Number of major vessels (0-3) colored by flourosopy</p>
+    <p>13. Thal: 0 = normal; 1 = fixed defect; 2 = reversable defect</p>
+    <p>Output : Either Heart Disease is present of not (0 or 1)</p>
+
+</div> 
+
+
+</form>
+
+
+</body>
+
+</html>
