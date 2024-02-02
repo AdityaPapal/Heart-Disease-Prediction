@@ -2,6 +2,6 @@ Flask
 numpy
 pandas
 Gunicorn
-sklearn
+scikit-learn 
 waitress
 pickle-mixin
