@@ -5,3 +5,4 @@ Gunicorn
 scikit-learn 
 waitress
 pickle-mixin
+xgboost
