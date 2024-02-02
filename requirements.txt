@@ -3,3 +3,5 @@ numpy
 pandas
 Gunicorn
 sklearn
+waitress
+pickle-mixin
